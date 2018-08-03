@@ -125,15 +125,16 @@ mode "resize" {
 
 # i3gaps
 set $mode_gaps Gaps: h|l|j (local), Shift h|l|j (global)
-
 bindsym $mod+g mode "$mode_gaps"
 mode "$mode_gaps" {
-        bindsym h gaps inner current plus 3
-        bindsym l gaps inner current minus 3
+        bindsym h gaps inner current plus 5
+        bindsym l gaps inner current minus 5
+        bindsym k gaps inner current set 15
         bindsym j gaps inner current set 0
 
-        bindsym Shift+h gaps inner all plus 3
-        bindsym Shift+l gaps inner all minus 3
+        bindsym Shift+h gaps inner all plus 5
+        bindsym Shift+l gaps inner all minus 5
+        bindsym Shift+k gaps inner all set 15
         bindsym Shift+j gaps inner all set 0
 
         bindsym semicolon mode "default"
