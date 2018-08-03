@@ -7,10 +7,6 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:DejaVu Sans Mono 8
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -127,46 +123,27 @@ mode "resize" {
 }
 
 # i3gaps
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+set $mode_gaps Gaps: h|l|j (local), Shift h|l|j (global)
 
+bindsym $mod+g mode "$mode_gaps"
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym semicolon mode "default"
-}
+        bindsym h gaps inner current plus 3
+        bindsym l gaps inner current minus 3
+        bindsym j gaps inner current set 0
 
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym semicolon mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+        bindsym Shift+h gaps inner all plus 3
+        bindsym Shift+l gaps inner all minus 3
+        bindsym Shift+j gaps inner all set 0
 
         bindsym semicolon mode "default"
 }
 
 bar {
-    status_command i3blocks -c ~/.i3/i3blocks/i3blocks.conf
+    status_command i3blocks -c ~/.config/i3/i3blocks/i3blocks.conf
     mode dock
-    position top
+    position bottom
     workspace_buttons yes
-    font pango:DejaVu Sans Mono 8
+    font pango:DejaVu Sans 8
     # tray_output primary
     tray_padding 1
 
@@ -212,4 +189,13 @@ exec --no-startup-id nm-applet
 exec --no-startup-id redshift
 exec --no-startup-id fcitx
 exec --no-startup-id ~/.fehbg
+exec --no-startup-id xinput disable 13
+exec --no-startup-id sudo powertop --auto-tune
+exec --no-startup-id sudo tlp start
 exec --no-startup-id light-locker lock-on-suspend
+
+# spps shortcut
+bindsym $mod+i exec --no-startup-id vivaldi-stable
+bindsym $mod+Shift+i exec --no-startup-id vivaldi-stable --incognito
+bindsym $mod+n exec --no-startup-id vivaldi-stable --app="chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/index.html"
+bindsym $mod+p exec --no-startup-id spotify
