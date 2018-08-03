@@ -197,7 +197,7 @@ exec --no-startup-id sudo tlp start
 exec --no-startup-id light-locker lock-on-suspend
 
 # spps shortcut
-bindsym $mod+o exec --no-startup-id vivaldi-stable
-bindsym $mod+Shift+o exec --no-startup-id vivaldi-stable --incognito
-bindsym $mod+n exec --no-startup-id vivaldi-stable --app="chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/index.html"
+bindsym $mod+o exec --no-startup-id opera
+bindsym $mod+Shift+o exec --no-startup-id opera -newprivatetab
+bindsym $mod+n exec --no-startup-id opera --app="chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/index.html"
 bindsym $mod+p exec --no-startup-id spotify
