@@ -14,7 +14,7 @@ floating_modifier $mod
 bindsym Control+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+o kill
+bindsym $mod+i kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -35,14 +35,14 @@ bindsym $mod+Shift+l move right
 bindsym $mod+v split h
 
 # split in vertical orientation
-bindsym $mod+m split v
+bindsym $mod+w split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -128,14 +128,14 @@ set $mode_gaps Gaps: h|l|j (local), Shift h|l|j (global)
 bindsym $mod+g mode "$mode_gaps"
 mode "$mode_gaps" {
         bindsym h gaps inner current plus 5
-        bindsym l gaps inner current minus 5
-        bindsym k gaps inner current set 15
         bindsym j gaps inner current set 0
+        bindsym k gaps inner current set 15
+        bindsym l gaps inner current minus 5
 
         bindsym Shift+h gaps inner all plus 5
-        bindsym Shift+l gaps inner all minus 5
-        bindsym Shift+k gaps inner all set 15
         bindsym Shift+j gaps inner all set 0
+        bindsym Shift+k gaps inner all set 15
+        bindsym Shift+l gaps inner all minus 5
 
         bindsym semicolon mode "default"
 }
@@ -197,7 +197,7 @@ exec --no-startup-id sudo tlp start
 exec --no-startup-id light-locker lock-on-suspend
 
 # spps shortcut
-bindsym $mod+i exec --no-startup-id vivaldi-stable
-bindsym $mod+Shift+i exec --no-startup-id vivaldi-stable --incognito
+bindsym $mod+o exec --no-startup-id vivaldi-stable
+bindsym $mod+Shift+o exec --no-startup-id vivaldi-stable --incognito
 bindsym $mod+n exec --no-startup-id vivaldi-stable --app="chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/index.html"
 bindsym $mod+p exec --no-startup-id spotify
